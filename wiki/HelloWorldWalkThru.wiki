@@ -4,7 +4,9 @@
 
 Lets take the most simple example possible - a function that takes no arguments and returns the string "Hello World!"
 
-All files are attached to this wiki page as well as inline.
+This page will walk you through creating such a plugin, step-by-step. The final code is available in the source tree under examples/helloworld.
+
+== Writing HelloWorld ==
 
 This is `helloworld.cc`.
 
@@ -159,7 +161,7 @@ function init() {
 </head>
 
 <body onload="init()">
-<object type='application/HelloWorld' id='plugin' width='0' height='0'> </object>
+<object type="application/HelloWorld" id="plugin" width="0" height="0"> </object>
 </body>
 </html>
 }}}
