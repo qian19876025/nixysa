@@ -4,7 +4,7 @@
 
 Lets take the most simple example possible - a function that takes no arguments and returns the string "Hello World!"
 
-This page will walk you through creating such a plugin, step-by-step. The final code is available in the source tree under examples/helloworld.
+This page will walk you through creating such a plugin, step-by-step. The final code is available in the source tree under `examples/hello_world`.
 
 == Writing !HelloWorld ==
 
