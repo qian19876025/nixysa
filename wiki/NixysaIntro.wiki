@@ -7,7 +7,7 @@ Nixysa is a lot like swig to create Javascript bindings (via NPAPI) to C++. Give
 
 == The simple example ==
 
-First start with our HelloWorld walk-thru. It's only a few lines of code and will explain each step and get you familiar with the Nixysa basics.
+First start with our HelloWorldWalkThru. It's only a few lines of code and will explain each step and get you familiar with the Nixysa basics.
 
 == The slightly more complex example ==
 
