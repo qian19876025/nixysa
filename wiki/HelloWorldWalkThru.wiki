@@ -6,7 +6,7 @@ Lets take the most simple example possible - a function that takes no arguments 
 
 All files are attached to this wiki page as well as inline.
 
-This is =helloworld.cc=.
+This is `helloworld.cc`.
 
 {{{
 #include <string>
@@ -19,7 +19,7 @@ std::string HelloWorld::GetHw() {
 }
 }}}
 
-And we'll have our associated =helloworld.h=:
+And we'll have our associated `helloworld.h`:
 
 {{{
 #ifndef HELLOWORLD_H
@@ -35,7 +35,7 @@ class HelloWorld {
 #endif  // HELLOWORLD_H
 }}}
 
-To get a JS binding to this C++, you simply need to add an IDL line to tell nixysa you want this to be part of your API. We'll call this =helloworld.idl=:
+To get a JS binding to this C++, you simply need to add an IDL line to tell nixysa you want this to be part of your API. We'll call this `helloworld.idl`:
 
 {{{
 [binding_model=by_value, include="helloworld.h"] class HelloWorld {
@@ -44,7 +44,7 @@ To get a JS binding to this C++, you simply need to add an IDL line to tell nixy
 };
 }}}
 
-That's it! There are two stub files you must fill out in order to build. The first is a file that describes your plugin - typically called =plugin.cc=:
+That's it! There are two stub files you must fill out in order to build. The first is a file that describes your plugin - typically called `plugin.cc`:
 
 {{{
 #include <npapi.h>
@@ -71,7 +71,7 @@ extern "C" {
 }
 }}}
 
-Next, nixysa uses SCons instead of Make. You can use an example =SConstruct= file, or I'll provide one here. The only lines you have to touch are =IDL_SOURCES=, =SOURCES= and the first argument to =env.SharedLibrary= which is the name of the sharedobject to create. Leave the rest. This is =SConstruct=.
+Next, nixysa uses SCons instead of Make. You can use an example `SConstruct` file, or I'll provide one here. The only lines you have to touch are `IDL_SOURCES`, `SOURCES` and the first argument to `env.SharedLibrary` which is the name of the sharedobject to create. Leave the rest. This is `SConstruct`.
 
 {{{
 import os
@@ -137,7 +137,7 @@ src/
 
 But you can change the paths in the SConstruct file if you wish to change that.
 
-Now build by running =scons=, and drop libhelloworld.so into the =plugins= directory of your favorite browser.
+Now build by running `scons`, and drop libhelloworld.so into the `plugins` directory of your favorite browser.
 
 We'll walk through some of the pieces that happen in a minute, first lets look at how you would use this.
 
@@ -164,13 +164,12 @@ function init() {
 </html>
 }}}
 
-Here we make the plugin load with an =object= tag that has the right MIME-type. It's important to remember that you need an init function =onload=, or the plugin won't be loaded when you try to instantiate your object.
+Here we make the plugin load with an `object` tag that has the right MIME-type. It's important to remember that you need an init function `onload`, or the plugin won't be loaded when you try to instantiate your object.
 
 In your init function, you pull a reference to the plugin and then instantiate your object. From here you can call methods on it.
 
-*BE WARNED*: Nixysa does a variety of namespace mangling to allow you to use C++-style names in your C++ and still have Javascript-style names in your JS. All functions exported to JS will have the first character lower case and the rest camel-case. So =FooBar()= will become =fooBar()= and =foo_bar()= will become =fooBar()= as well.
+*BE WARNED*: Nixysa does a variety of namespace mangling to allow you to use C++-style names in your C++ and still have Javascript-style names in your JS. All functions exported to JS will have the first character lower case and the rest camel-case. So `FooBar()` will become `fooBar()` and `foo_bar()` will become `fooBar()` as well.
 
-When you call =hw.getHw()= above, you are calling a NPAPI backed function written by Nixysa which will then call your method, and return the value back to javascript.
+When you call `hw.getHw()` above, you are calling a NPAPI backed function written by Nixysa which will then call your method, and return the value back to javascript.
 
-Nixysa natively understands =bool=s, =int=s, and =std::string=s. 
-
+Nixysa natively understands `bool`s, `int`s, and `std::string`s. 
