@@ -50,7 +50,7 @@ class MyObj {
 };
 }}}
 
-*NOTE*: The getter function MUST match this naming convention - the private member variable without the trailing underscore, and the setter MUST match the convention of set_$getter.
+*NOTE*: The getter function MUST match this naming convention - the private member variable without the trailing underscore, and the setter MUST match the convention of `set_` followed by the name of the getter.
 
 And then you'd write the IDL for it, let's say in `types.h`.
 
