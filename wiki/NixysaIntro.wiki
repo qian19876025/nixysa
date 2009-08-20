@@ -50,7 +50,7 @@ class MyObj {
 };
 }}}
 
-*NOTE*: The getter function MUST match this naming convention - the private member variable without the trailing underscore, and the setter MUST match the convention of `set_` followed by the name of the getter.
+*NOTE*: If you use the defaluts, the getter function must match this naming convention - the private member variable without the trailing underscore, and the setter must match the convention of `set_` followed by the name of the getter. However it is possible to specify the name of the getter and setter (see below).
 
 And then you'd write the IDL for it, let's say in `types.h`.
 
@@ -62,6 +62,27 @@ And then you'd write the IDL for it, let's say in `types.h`.
 }}}
 
 In this case I don't want JS to be able to change things, so I've set only `getter`... you could use `[getter, setter]` to export both read and write operations to Javascript.
+
+If you want to change the name of the getter or setter in your C++ class, you can specify it in the IDL:
+
+{{{
+[binding_model=by_value, nocpp, include="types.h"] class MyObj {
+  [getter=Value, setter=SetValue] bool value_;
+};
+}}}
+
+That will work with a C++ class defined as follow:
+
+{{{
+class MyObj {
+ public:
+  bool Value() { return value_; }
+  void SetValue(bool value) { value_ = value; }
+ private:
+  bool value_;
+};
+}}}
+
 
 Now you can return MyObj from classes - but you'll have to write a small bit of glue code for functions that return this. For example, lets say you have this function in `helloworld.cc`:
 
@@ -137,16 +158,13 @@ And in IDL, the same thing is supported:
 }
 }}}
 
-Of course, you have to have defined the base class in IDL - and there's no "public" keyword here.
-
-TODO(piman): Does it assume public inheritance?
-
+Of course, you have to have defined the base class in IDL - and there's no "public" keyword here: since IDL only deals with interfaces, public inheritance is assumed.
 
 == Exceptions ==
 
 There is currently no support for throwing JS exceptions, you should use properties of the JS objects you export to do this.
 
-== Binding Types ==
+== Binding Models ==
 
 TODO(piman)
 
