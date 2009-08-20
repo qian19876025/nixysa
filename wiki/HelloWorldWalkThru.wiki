@@ -149,7 +149,7 @@ We'll walk through some of the pieces that happen in a minute, first lets look a
 <script type="text/javascript">
 
 function init() {
-  var plugin = document.getElementById('plugin');
+  var plugin = document.getElementById("plugin");
   var hw = plugin.HelloWorld();
   if (!hw) {
     alert("no plugin");
