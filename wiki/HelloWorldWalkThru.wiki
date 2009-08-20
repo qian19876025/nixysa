@@ -174,4 +174,4 @@ In your init function, you pull a reference to the plugin and then instantiate y
 
 When you call `hw.getHw()` above, you are calling a NPAPI backed function written by Nixysa which will then call your method, and return the value back to javascript.
 
-Nixysa natively understands `bool`s, `int`s, and `std::string`s. 
+Nixysa natively understands `bool`s, `int`s, `float`s, `double`s and `std::string`s. 
