@@ -12,7 +12,7 @@ First start with our HelloWorldWalkThru. It's only a few lines of code and will 
 
 == The slightly more complex example ==
 
-A simple example that exports Complex number math is in the Nixysa source under `examples/Complex` - after the above into, it should be easy to follow it.
+A simple example that exports Complex number math is in the Nixysa source under `examples/Complex` - after the above intro, it should be easy to follow it.
 
 
 == Returning Objects ==
