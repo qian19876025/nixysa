@@ -118,6 +118,21 @@ if (foo.isGood) {
 
 Nixysa supports arrays. The idl for the javascript is simply `std::string[] bar` and this will get converted to a `std::vector<std::string> bar`.
 
+== Passing By Reference ==
+
+The IDL for reference pass is the same. For example, your C++ might be:
+
+{{{
+void foo(const std::vector<std::string> &bla);
+}}}
+
+The IDL is simply:
+
+{{{
+void foo(std::string[] bla);
+}}}
+
+
 == Slightly more complicated method calls ==
 
 So what if the C++ function you want to call takes the object by reference instead of returning it? You can do this with a bit of IDL glue. We'll assume here the C++ prototype is `void Cool(MyObj *foo)`
