@@ -11,7 +11,8 @@ We currently don't have a separate mailing list for contributors vs users, so pl
 == Submitting code ==
 
 As much as possible, we follow the [http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml Google style guide] for C++ code. Please follow that style when writing new code !
-All code changes need to be reviewed. To do that we use the [http://codereview.appspot.com/ Rietveld] review tool. When making a change, you can use the upload.py script to send it automatically to the code review tool. That script can be found in the tools/ directory in the source tree. After the change is uploaded, send it for review to a member of the project. Please ask the nixysa-users list if you don't know how to send it to, someone from the team will be happy to look at it.
+All code changes need to be reviewed. To do that we use the same review tool as [http://dev.chromium.org/ Chromium]. You can look [http://dev.chromium.org/developers/contributing-code here] for instructions about how to use that tool.
+After the change is uploaded, send it for review to a member of the project. Please ask the nixysa-users list if you don't know how to send it to, someone from the team will be happy to look at it.
 
 == Legal ==
 
